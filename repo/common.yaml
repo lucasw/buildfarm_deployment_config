@@ -1,6 +1,6 @@
 jenkins::slave::ui_user: 'admin'
 jenkins::slave::ui_pass: 'changeme'
-jenkins::slave::masterurl: 'http://master:8080'
+jenkins::slave::masterurl: 'http://custom-master'
 
 # master::ip: 54.67.30.249
 
@@ -96,11 +96,11 @@ jenkins-slave::gpg_public_key: |
     -----END PGP PUBLIC KEY BLOCK-----
 
 ssh_keys:
-    'tfoote@zug':
+    'custom@zug':
         key: AAAAB3NzaC1yc2EAAAABIwAAAQEApDU8Bxx4a51OnPms2Kuw/9K6RA+Mjp1lGAn8GpKs1Mr2SOZattPd085v4dgc+Ydnud57Pk+FkuyOWvmd07AjQ+h2+OH9pE+pMVVWXddz36svQeVb0/yvgbCiMxPqQi//ctQmJmPEAuF6gs4imMSHTtmLdWYzqVGkJ4TZwpyERC/c7TyfVZ7zvkNZ2+3pcceiS5F86M/CNgRBvdLQ9jk6x3S93JR0V49xkxRUE428qFzuRggv8m//5hrgXCyty/ZUQlTI5CcwKsedQLcPtOjTTakCw9o7x0ShXYWKD7MelYkUPKbE0H4J87AVm9H9SGs02WsuAbOL7NacboMGCxIcsw==
         type: ssh-rsa
         user: root
-    'tfoote@yeti':
+    'custom@yeti':
         key: AAAAB3NzaC1yc2EAAAADAQABAAABAQC2NOaRsdZqqTrCwNR77AQIqwAPYkDfiL1Ou7Pi/qaW9S7UU0Y1KAQ6kWhgJc9RtOhbZKGHbFTqSLT4235TkmPvlZbV2bK8ZViBmqQ3r8vDMhC/+p9Ec9SP8sjv6JcIEWOy5zXPnB3OnHHWXmvZP47rjJY0l76F71fZt3vlvyjz7IrikULmuKcyrE+zulmbSTtfGZhxQRPxZDO/RiOemCPsYo5u/rUMjWH+CkEI0swQlM6QIvjWdfYtNwQT9yo53MXFy5jodhW4YOOncKE4RMOI9Lmu6jE0GmdmSEv486R4ot6iWanx2hk/46zlmX1kSKGWObRdH57H/xIAxvw+PiTd
         type: ssh-rsa
         user: jenkins-slave
@@ -134,10 +134,12 @@ jenkins-slave::reprepro_config:
         ensure: 'present'
         content: |
             name: ros_bootstrap
-            method: http://repos.ros.org/repos/ros_bootstrap
-            suites: [lucid, maverick, natty, oneiric, precise, quantal, raring, saucy, trusty, utopic, vivid, wily, xenial, jessie, wheezy]
+            method: http://custom-repo/repos/ros_bootstrap
+            # suites: [lucid, maverick, natty, oneiric, precise, quantal, raring, saucy, trusty, utopic, vivid, wily, xenial, jessie, wheezy]
+            suites: [trusty]
             component: main
-            architectures: [i386, amd64, arm64, armel, armhf, source]
+            # architectures: [i386, amd64, arm64, armel, armhf, source]
+            architectures: [amd64, source]
             # filter_formula: Package (% python* )
             # needed until we deploy the gpg key
             verify_release: blindtrust
