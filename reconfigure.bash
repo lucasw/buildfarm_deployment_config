@@ -12,19 +12,22 @@ if [ ! -d $1 ]; then
 fi
 
 if [ ! -d /root/buildfarm_deployment ]; then
+  echo "########################"
   echo "/root/buildfarm_deplyment did not exist, cloning."
   git clone $BUILDFARM_DEPLOYMENT_URL /root/buildfarm_deployment -b $BUILDFARM_DEPLOYMENT_BRANCH
 fi
 
+echo "########################"
 echo "Copying in configuration"
 mkdir -p /etc/puppet/hieradata
 cp $1/hiera.yaml /etc/puppet
 cp $1/common.yaml /etc/puppet/hieradata
 
-
-
-
+echo "########################"
 echo "Asserting latest version of $BUILDFARM_DEPLOYMENT_URL as $BUILDFARM_DEPLOYMENT_BRANCH"
 cd $BUILDFARM_DEPLOYMENT_PATH && git fetch origin && git reset --hard origin/$BUILDFARM_DEPLOYMENT_BRANCH
+echo "########################"
 echo "Running librarian-puppet"
 (cd $BUILDFARM_DEPLOYMENT_PATH/$1 && librarian-puppet install --verbose)
+echo "########################"
+echo "Finished, run ./reconfigure_finish.bash $1 next"
