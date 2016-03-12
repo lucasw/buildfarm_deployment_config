@@ -15,8 +15,9 @@ ssh_keys:
 # Known hosts to use for things like uploading results.
 ssh_host_keys:
   # TODO(lucasw) run keyscan -h custom-repo once it is up and running
-  custom-repo: custom-repo ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFc/Nq1TAnCl4XC4nFl6QNOLcJLw5vY0lkvMlVULn8jkQPn3iUy59Q2fja+h4lmQlD17iSY3o4luHUYkYKAdHcI=
-  # TBD: TBD ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFc/Nq1TAnCl4XC4nFl6QNOLcJLw5vY0lkvMlVULn8jkQPn3iUy59Q2fja+h4lmQlD17iSY3o4luHUYkYKAdHcI=
+  # These need to match docker_test/ssh_server/ssh_host_ecdsa_key.pub
+  custom-repo: custom-repo ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHO7qy6rF1PaUdH6FlVbGZ9Vf7cowaw+m9aU5s8ISeYUgUbkKB/jXwImFVOjEw1zeJfCMtuCjx4mcimmp5U6WbQ=
+  172.18.0.31: 172.18.0.31 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHO7qy6rF1PaUdH6FlVbGZ9Vf7cowaw+m9aU5s8ISeYUgUbkKB/jXwImFVOjEw1zeJfCMtuCjx4mcimmp5U6WbQ=
 
 autoreconfigure: true
 autoreconfigure::command: 'bash -c "cd /root/buildfarm_deployment_config && git fetch origin master && git reset --hard origin/master && ./reconfigure.bash slave"'
