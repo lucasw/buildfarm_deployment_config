@@ -16,6 +16,8 @@ ssh_keys:
 ssh_host_keys:
   # TODO(lucasw) run ssh-keyscan -H custom-repo once it is up and running
   # TODO(lucasw) is this key derived from another key?
+  # TODO(lucasw) this key changes for every docker image created.  Need to find out
+  # how to set it so this will always be correct.
   custom-repo: custom-repo ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH3BKkJHZaa/4fDUazX9poZ8NA0S+gYQwt88JDy/w3RwYAR4kc0rzWkaMjSjNE4AbL4cHtSVy1bMxwhLXy1pz/g=
   172.18.0.31: 172.18.0.31 custom-repo ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH3BKkJHZaa/4fDUazX9poZ8NA0S+gYQwt88JDy/w3RwYAR4kc0rzWkaMjSjNE4AbL4cHtSVy1bMxwhLXy1pz/g=
 
