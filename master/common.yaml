@@ -23,6 +23,9 @@ jenkins::nodeMonitor::minimum_disk_space: 10G
 jenkins::lts: true
 
 ssh_keys:
+    # This goes into /root/authorized_keys, so anyone with the private key
+    # can log in as root.  (I made a backdoor through the user newuser which 
+    # has sudo and a trivial password)
     # TODO(lucasw) where is the private key of this stored?
     # This isn't needed for any jobs, just for being able to log into root
     # from outside of the buildfarm- so it could be replaced with my

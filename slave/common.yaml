@@ -8,6 +8,7 @@ jenkins::slave::num_executors: 1
 
 ssh_keys:
     # TODO(lucasw) where is the private key of this stored?
+    # See the comment in master/common.yaml
     'custom@zug':
         key: AAAAB3NzaC1yc2EAAAABIwAAAQEApDU8Bxx4a51OnPms2Kuw/9K6RA+Mjp1lGAn8GpKs1Mr2SOZattPd085v4dgc+Ydnud57Pk+FkuyOWvmd07AjQ+h2+OH9pE+pMVVWXddz36svQeVb0/yvgbCiMxPqQi//ctQmJmPEAuF6gs4imMSHTtmLdWYzqVGkJ4TZwpyERC/c7TyfVZ7zvkNZ2+3pcceiS5F86M/CNgRBvdLQ9jk6x3S93JR0V49xkxRUE428qFzuRggv8m//5hrgXCyty/ZUQlTI5CcwKsedQLcPtOjTTakCw9o7x0ShXYWKD7MelYkUPKbE0H4J87AVm9H9SGs02WsuAbOL7NacboMGCxIcsw==
         type: ssh-rsa
