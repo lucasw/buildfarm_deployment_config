@@ -68,6 +68,9 @@ autoreconfigure::command: 'bash -c "cd /root/buildfarm_deployment_config && git 
 
 ### Optional customization urls for uploading docs (should match urls in the)
 ### These should match the credentials in the ros_buildfarm_config doc-build.yaml
+# TODO(lucasw) it seems like the ssh server hostname is not getting updated-
+# this updates the docs host, but the repo, rosdistro_cache, and status_page still
+# say 'repo' instead of 'custom-repo' on http://custom-master/configure
 upload::docs::host: custom-repo
 # upload::docs::user: jenkins-slave
 # upload::docs::root: '/var/repos/docs'
